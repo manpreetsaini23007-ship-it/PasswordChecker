@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PWD.CIPHER</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <canvas id="bg-canvas"></canvas>
+    <div class="scanlines"></div>
+    <div class="vignette"></div>
+
+    <main class="container">
+        <h1 class="title">PWD.CIPHER</h1>
+        <div class="strength-label" id="strength-label">AWAITING SEQUENCE</div>
+
+        <div class="input-panel">
+            <div class="corner-bracket top-left"></div>
+            <div class="corner-bracket top-right"></div>
+            <div class="corner-bracket bottom-left"></div>
+            <div class="corner-bracket bottom-right"></div>
+            
+            <div class="input-label">// ENTER PASSWORD SEQUENCE</div>
+            <div class="input-wrapper">
+                <input type="password" id="pwd-input" placeholder="" autocomplete="off" spellcheck="false">
+                <button id="btn-toggle" class="icon-btn btn-magenta"><i class="ti ti-eye"></i></button>
+                <button id="btn-copy" class="icon-btn btn-amber"><i class="ti ti-copy"></i></button>
+                <div class="toast" id="copy-toast">COPIED</div>
+            </div>
+            <button id="btn-generate" class="generate-btn">AUTO-GENERATE</button>
+        </div>
+
+        <div class="strength-bar-container">
+            <div class="segment" id="seg-1"></div>
+            <div class="segment" id="seg-2"></div>
+            <div class="segment" id="seg-3"></div>
+            <div class="segment" id="seg-4"></div>
+            <div class="segment" id="seg-5"></div>
+        </div>
+
+        <div class="criteria-grid">
+            <div class="criterion" id="crit-len8"><div class="dot"></div><span>8+ CHARACTERS</span></div>
+            <div class="criterion" id="crit-upper"><div class="dot"></div><span>UPPERCASE LETTER</span></div>
+            <div class="criterion" id="crit-lower"><div class="dot"></div><span>LOWERCASE LETTER</span></div>
+            <div class="criterion" id="crit-num"><div class="dot"></div><span>NUMERIC DIGIT</span></div>
+            <div class="criterion" id="crit-sym"><div class="dot"></div><span>SPECIAL SYMBOL</span></div>
+            <div class="criterion" id="crit-len16"><div class="dot"></div><span>16+ CHARACTERS</span></div>
+        </div>
+
+        <div class="stats-row">
+            <div class="stat-box">
+                <div class="stat-label">LENGTH</div>
+                <div class="stat-value" id="stat-len">0</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">ENTROPY (BITS)</div>
+                <div class="stat-value" id="stat-ent">0</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">CHARSET SIZE</div>
+                <div class="stat-value" id="stat-char">0</div>
+            </div>
+        </div>
+
+        <div class="crack-time-panel">
+            <div class="crack-label">// CRACK TIME ESTIMATE</div>
+            <div class="crack-value" id="crack-time">INSTANTLY</div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
